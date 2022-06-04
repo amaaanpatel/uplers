@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AddMoviesComponent} from './components/add-movies/add-movies.component'
 import { ListMoviesComponent } from './components/list-movies/list-movies.component';
+import { AboutProjectComponent } from './components/about-project/about-project.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'aboutproject',
-    component: AddMoviesComponent,
+    component: AboutProjectComponent,
     data: { title: 'about project' }
   }
 ];
