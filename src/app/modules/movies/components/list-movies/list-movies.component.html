@@ -1,0 +1,22 @@
+<div class="mainContainer">
+    <div class="counter">
+        <div class="chip" color="primary">
+            {{moviesCount$ | async}}
+        </div>
+    </div>
+</div>
+<div class="topContainer">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Favorite Movie" [(ngModel)]="movieName">
+    </mat-form-field>
+    <div class="containerButtons">
+        <button mat-raised-button color="primary" class="matbuttons" (click)="searchMovies()">Search Movie</button>
+        <button mat-raised-button color="primary" (click)="resetMovies()">Reset Movie</button>
+    </div>
+</div>
+
+<div class="movie-item">
+    <mat-list role="list">
+        <mat-list-item role="listitem" style="color: black;" *ngFor="let movie of movies$ | async">{{movie.Title}}</mat-list-item>
+    </mat-list>
+</div>

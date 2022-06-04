@@ -1,0 +1,24 @@
+.topContainer{
+    font-size: x-large;
+}
+.matbuttons {
+    margin-right: 20px;
+}
+
+.counter{
+    margin: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+.chip{
+    font-size: xx-large;
+    color: red;
+}
+.movie-item {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+  
