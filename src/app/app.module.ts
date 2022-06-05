@@ -10,7 +10,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { StoreModule } from '@ngrx/store';
 import { MoviesReducer } from './modules/core/state/movies/movies.reducer';
-// import { MoviesEffect } from './modules/core/state/movies/movies.effects';
+import { MoviesEffect } from './modules/core/state/movies/movies.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -28,7 +28,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     CoreModule,
     HttpClientModule,
     StoreModule.forRoot({ movies : MoviesReducer }),
-    // EffectsModule.forRoot([MoviesEffect])
+    EffectsModule.forRoot([MoviesEffect]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: false, // Restrict extension to log-only mode

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {searchMovies,loadMoviessSuccess} from '../../../core/state/movies/movies.actions';
+import {searchMovies,loadMoviessSuccess,loadMovies} from '../../../core/state/movies/movies.actions';
 import {MoviesService} from '../../services/movies.service';
 import {movieCount,moviesList } from '../../../core/state/movies/movies.selector';
 import { movieList } from '../../models/movies.model';
@@ -30,9 +30,11 @@ export class ListMoviesComponent implements OnInit {
   }
 
   resetMovies() {
-    this.moviesService
-      .getMovies()
-      .subscribe((movies:movieList[]) => this.store.dispatch(loadMoviessSuccess({ movies:movies,moviesCount:movies.length })));
+    // this.moviesService
+    //   .getMovies()
+    //   .subscribe((movies:movieList[]) => this.store.dispatch(loadMoviessSuccess({ movies:movies,moviesCount:movies.length })));
+    //use effects to reset movies
+    this.store.dispatch(loadMovies())
   }
 
 }

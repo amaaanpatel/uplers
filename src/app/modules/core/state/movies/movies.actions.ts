@@ -22,3 +22,14 @@ export const loadMoviessSuccess = createAction(
     '[Movies API] Movies Load Success',
     props<Movies>()
 );
+
+//load movies
+export const loadMovies = createAction(
+    '[Load Movies API] Load Movies'
+);
+
+//load movies Error
+export const loadMoviesError = createAction(
+    '[Load Movies Error] Load Movies Error',
+    props<Movies>()
+);

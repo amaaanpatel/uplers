@@ -1,7 +1,7 @@
 import { Component,OnInit} from '@angular/core';
 import {selectMovies,moviesList,movieCount } from './modules/core/state/movies/movies.selector';
 import { Store } from '@ngrx/store';
-import {loadMoviessSuccess} from './modules/core/state/movies/movies.actions';
+import {loadMoviessSuccess,loadMovies} from './modules/core/state/movies/movies.actions';
 import { movieList } from './modules/movies/models/movies.model';
 import {MoviesService} from './modules/movies/services/movies.service'
 
@@ -19,8 +19,10 @@ export class AppComponent implements OnInit {
   constructor(private store: Store, private moviesService: MoviesService) {}
 
   ngOnInit() {
-    this.moviesService
-      .getMovies()
-      .subscribe((movies:movieList[]) => this.store.dispatch(loadMoviessSuccess({ movies:movies,moviesCount:movies.length })));
+    // this.moviesService
+    //   .getMovies()
+    //   .subscribe((movies:movieList[]) => this.store.dispatch(loadMoviessSuccess({ movies:movies,moviesCount:movies.length })));
+    //user effect to load the intial data
+    this.store.dispatch(loadMovies())
   }
 }

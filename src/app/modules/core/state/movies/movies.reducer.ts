@@ -1,5 +1,5 @@
 import { createReducer, on, State } from "@ngrx/store";
-import { addMovie, removeMovie, loadMoviessSuccess, searchMovies } from "./movies.actions"
+import { addMovie, removeMovie, loadMoviessSuccess, searchMovies,loadMoviesError } from "./movies.actions"
 import { Movies } from "../../../movies/models/movies.model";
 
 export const initialState: Movies = {
@@ -24,4 +24,5 @@ export const MoviesReducer = createReducer(
         movies: state.movies.filter((movie) => movie.Title.toLocaleLowerCase() === name.toLocaleLowerCase()),
         moviesCount: state.movies.filter((movie) => movie.Title.toLocaleLowerCase() === name.toLocaleLowerCase()).length
     })),
+    on(loadMoviesError, (state, { movies, moviesCount }) => ({ ...state, moviesCount: moviesCount, movies: movies })),
 );
