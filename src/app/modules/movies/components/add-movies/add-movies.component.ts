@@ -4,6 +4,7 @@ import { addMovie, removeMovie, loadMoviessSuccess, searchMovies } from '../../.
 import { Movies, movieList } from '../../models/movies.model';
 import { selectMovies, moviesList, movieCount } from '../../../core/state/movies/movies.selector';
 import { MoviesService } from '../../services/movies.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-movies',
@@ -12,9 +13,9 @@ import { MoviesService } from '../../services/movies.service'
 })
 export class AddMoviesComponent implements OnInit {
   //movies list(array)
-  public movies$ = this.store.select(moviesList);
+  public movies$: Observable<Array<movieList>> = this.store.select(moviesList);
   //movies count
-  public moviesCount$ = this.store.select(movieCount);
+  public moviesCount$:Observable<number>= this.store.select(movieCount);
   //store the name of the movie for adding and deleting
   public movieName = "";
 
